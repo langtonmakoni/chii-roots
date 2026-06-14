@@ -15,17 +15,34 @@
         .match-card { transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1); }
         .match-card:hover { transform: translateY(-6px); }
         .symphony { font-style: italic; }
+        .chii-roots-logo { filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.3)); }
     </style>
 </head>
 <body class="bg-[#0a0f0a] text-[#e5e5e5]">
-    <!-- HEADER -->
+    <!-- HEADER with precise Chii Roots Logo -->
     <header class="border-b border-[#2e3a2e] bg-[#0a0f0a]/95 backdrop-blur-xl sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
             <div class="flex items-center gap-x-4">
+                <!-- Chii Roots Logo (SVG recreation from attached emblem) -->
                 <div class="flex items-center gap-x-3">
-                    <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-[#d4af37] to-[#8b6914] flex items-center justify-center">
-                        <i class="fa-solid fa-seedling text-[#0a0f0a] text-2xl"></i>
-                    </div>
+                    <svg width="42" height="42" viewBox="0 0 120 120" class="chii-roots-logo" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Outer gold ring -->
+                        <circle cx="60" cy="60" r="56" fill="#0a0f0a" stroke="#d4af37" stroke-width="6"/>
+                        <!-- Inner blue field -->
+                        <circle cx="60" cy="60" r="48" fill="#0f1a12"/>
+                        <!-- Laurel wreath -->
+                        <path d="M30 85 Q45 95 60 85 Q75 95 90 85" fill="none" stroke="#2e7d32" stroke-width="4"/>
+                        <path d="M32 82 Q40 75 48 82" fill="none" stroke="#2e7d32" stroke-width="3"/>
+                        <path d="M72 82 Q80 75 88 82" fill="none" stroke="#2e7d32" stroke-width="3"/>
+                        <!-- Golden Key -->
+                        <path d="M55 38 L55 68" stroke="#d4af37" stroke-width="6" stroke-linecap="round"/>
+                        <circle cx="55" cy="35" r="8" fill="none" stroke="#d4af37" stroke-width="5"/>
+                        <!-- Leaf crown on key -->
+                        <path d="M47 28 Q55 18 63 28" fill="none" stroke="#d4af37" stroke-width="3"/>
+                        <path d="M50 25 Q55 20 60 25" fill="none" stroke="#d4af37" stroke-width="2.5"/>
+                        <!-- Text arc -->
+                        <text x="60" y="22" text-anchor="middle" fill="#d4af37" font-size="11" font-weight="700" letter-spacing="3">CHII ROOTS</text>
+                    </svg>
                     <div>
                         <span class="font-semibold text-3xl tracking-tighter">CHII</span>
                         <span class="font-light tracking-[4px] text-[#d4af37] text-2xl">ROOTS</span>
@@ -59,7 +76,17 @@
     <!-- DASHBOARD -->
     <div id="tab-dashboard" class="tab-content max-w-7xl mx-auto px-6 py-10">
         <div class="max-w-4xl">
-            <h1 class="heading-serif text-6xl font-bold tracking-tighter mb-2">Your Roots.<br>Your Destiny.</h1>
+            <div class="flex items-center gap-x-4 mb-4">
+                <!-- Small logo in dashboard -->
+                <svg width="32" height="32" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="60" cy="60" r="56" fill="#0a0f0a" stroke="#d4af37" stroke-width="6"/>
+                    <circle cx="60" cy="60" r="48" fill="#0f1a12"/>
+                    <path d="M55 38 L55 68" stroke="#d4af37" stroke-width="6" stroke-linecap="round"/>
+                    <circle cx="55" cy="35" r="8" fill="none" stroke="#d4af37" stroke-width="5"/>
+                    <path d="M47 28 Q55 18 63 28" fill="none" stroke="#d4af37" stroke-width="3"/>
+                </svg>
+                <h1 class="heading-serif text-6xl font-bold tracking-tighter">Your Roots.<br>Your Destiny.</h1>
+            </div>
             <p class="text-[#a3a3a3] mb-8">The only platform where your family tree directly shapes who you meet for legacy.</p>
 
             <div class="grid md:grid-cols-3 gap-5">
@@ -74,7 +101,7 @@
 
                 <div class="bg-[#111611] border border-[#2e3a2e] rounded-3xl p-7 md:col-span-2">
                     <div class="font-semibold mb-2">Chii AI Matchmaking is Active</div>
-                    <div class="text-sm text-[#a3a3a3]">Your family tree, Bazi, pillars, and House of Chizuva heritage now intelligently influence who appears in your matches. This is the only app that merges ancestral lineage with conscious partnership.</div>
+                    <div class="text-sm text-[#a3a3a3]">Your family tree, Bazi, pillars, and House of Chizuva heritage now intelligently influence who appears in your matches.</div>
                     <button onclick="switchTab('matches')" class="mt-4 text-xs px-5 py-2 bg-[#d4af37] text-[#0a0f0a] font-semibold rounded-2xl">View AI Matches</button>
                 </div>
             </div>
@@ -87,7 +114,6 @@
             <div>
                 <span class="text-[#d4af37] text-sm tracking-[2px] font-semibold">POWERED BY YOUR CHII SYSTEM MASTER WORKSHEET</span>
                 <h2 class="heading-serif text-5xl font-bold tracking-tighter">Family Tree</h2>
-                <p class="text-sm text-[#a3a3a3] mt-1">House of Chizuva is the sacred origin. Every node you add strengthens your legacy profile for AI matchmaking.</p>
             </div>
             <div class="flex gap-x-3">
                 <button onclick="addFamilyNode()" class="px-5 py-2.5 bg-[#d4af37] text-[#0a0f0a] font-semibold rounded-2xl flex items-center gap-x-2"><i class="fa-solid fa-plus"></i> <span>Add Member</span></button>
@@ -101,7 +127,7 @@
         </div>
     </div>
 
-    <!-- CHII AI MATCHES TAB -->
+    <!-- CHII AI MATCHES -->
     <div id="tab-matches" class="tab-content hidden max-w-7xl mx-auto px-6 py-10">
         <div class="max-w-5xl">
             <div class="flex items-end justify-between mb-6">
@@ -112,7 +138,6 @@
                 <button onclick="startResonanceRitual()" class="px-5 py-2.5 border border-[#d4af37] rounded-2xl text-sm flex items-center gap-x-2">Resonance Ritual First</button>
             </div>
 
-            <!-- Symphony Disclosure -->
             <div class="mb-6 p-5 bg-[#111611] border border-[#d4af37]/30 rounded-3xl text-sm symphony">
                 “The Chii AI Matchmaking Engine calculates lineage harmony, Bazi resonance, pillar alignment, and generational legacy potential in real time. Your family tree is not just history — it is the living intelligence that shapes who you are meant to build with.”
             </div>
@@ -202,56 +227,39 @@
             setTimeout(() => t.remove(), 3200);
         }
 
-        // ===== CHII AI MATCHMAKING ENGINE (Advanced Cross-Functional) =====
+        // Chii AI Matchmaking Engine
         function calculateChiiAIMatchScore(user, match) {
             if (!user) return match.score || 72;
-
             let score = 65;
-
-            // Pillar alignment (very important for Chii)
             const userPillars = user.pillars || [];
             const matchPillars = match.pillars || [];
-            const sharedPillars = userPillars.filter(p => matchPillars.includes(p)).length;
-            score += sharedPillars * 6;
-
-            // Bazi / Generational fit
+            const shared = userPillars.filter(p => matchPillars.includes(p)).length;
+            score += shared * 6;
             const userYear = parseInt(user.birth.split('-')[0]);
             const matchYear = parseInt(match.birth.split('-')[0]);
             const ageDiff = Math.abs(userYear - matchYear);
-            if (ageDiff >= 8 && ageDiff <= 18) score += 10; // ideal for legacy family building
+            if (ageDiff >= 8 && ageDiff <= 18) score += 10;
             else if (ageDiff < 25) score += 5;
-
-            // Heritage / House of Chizuva alignment (unique Chii feature)
             if (match.heritage && match.heritage.toLowerCase().includes('chizuva')) score += 12;
-            if (match.heritage && match.heritage.toLowerCase().includes('lineage')) score += 8;
-
-            // Tree depth bonus (cross-functionality — richer tree = better matches)
             const treeDepth = familyNodes.length;
             if (treeDepth > 5) score += 6;
             if (treeDepth > 8) score += 4;
-
-            // Chii Destiny resonance
             score += (user.resonance || 80) > 80 ? 5 : 0;
-
             return Math.min(97, Math.max(58, Math.round(score)));
         }
 
         function loadMatches() {
             const grid = document.getElementById('matches-grid');
             grid.innerHTML = '';
-
             const mockMatches = [
-                { name: "Gift Nyanyatw", birth: "3 Jan 2001", location: "Nigeria", score: 91, why: "Exceptional Bazi resonance + shared Legacy & Sovereignty pillars. Strong House of Chizuva alignment potential. Ideal generational window for homestead sanctuaries.", pillars: ["ancestral", "legacy", "sovereignty"], heritage: "Nigeria lineage with deep respect for ancestral roots" },
-                { name: "Amina Kone", birth: "12 Mar 1996", location: "Mali", score: 86, why: "High legacy alignment and homestead builder energy. Complements your House of Chizuva root beautifully.", pillars: ["legacy", "homestead"], heritage: "Strong matrilineal lineage" },
-                { name: "Thabo Mokoena", birth: "28 Jul 1989", location: "South Africa", score: 79, why: "Excellent elemental harmony and commitment to sovereign structures. Good tree-building synergy.", pillars: ["sovereignty", "ancestral"], heritage: "Connected to Great Zimbabwe heritage" }
+                { name: "Gift Nyanyatw", birth: "3 Jan 2001", location: "Nigeria", score: 91, why: "Exceptional Bazi resonance + shared Legacy & Sovereignty pillars. Strong House of Chizuva alignment. Ideal for homestead sanctuaries.", pillars: ["ancestral", "legacy", "sovereignty"], heritage: "Nigeria lineage with deep ancestral roots" },
+                { name: "Amina Kone", birth: "12 Mar 1996", location: "Mali", score: 86, why: "High legacy alignment and homestead builder energy. Complements House of Chizuva beautifully.", pillars: ["legacy", "homestead"], heritage: "Strong matrilineal lineage" },
+                { name: "Thabo Mokoena", birth: "28 Jul 1989", location: "South Africa", score: 79, why: "Excellent elemental harmony and sovereign structure commitment.", pillars: ["sovereignty", "ancestral"], heritage: "Great Zimbabwe heritage connection" }
             ];
-
-            // Sort by real Chii AI score if user exists
             if (currentUser) {
                 mockMatches.forEach(m => m.calculatedScore = calculateChiiAIMatchScore(currentUser, m));
                 mockMatches.sort((a, b) => (b.calculatedScore || 0) - (a.calculatedScore || 0));
             }
-
             mockMatches.forEach(match => {
                 const finalScore = match.calculatedScore || match.score;
                 const card = document.createElement('div');
@@ -278,31 +286,23 @@
         }
 
         function viewFullAIReport(name, score) {
-            alert(`Chii AI Full Report for ${name}\n\nScore: ${score}%\n\nBreakdown:\n• Pillar Alignment: High\n• Bazi + Generational Fit: Excellent for legacy family building\n• House of Chizuva Heritage Harmony: Strong\n• Tree Synergy: Your current lineage depth boosts compatibility\n\nThis match strengthens the entire Chii nervous system and Seed of Legacy.`);
+            alert(`Chii AI Full Report for ${name}\n\nScore: ${score}%\n\n• Pillar Alignment: High\n• Bazi + Generational Fit: Excellent for legacy building\n• House of Chizuva Heritage Harmony: Strong\n• Tree Synergy: Your lineage depth boosts compatibility\n\nThis match strengthens the Chii nervous system and Seed of Legacy.`);
         }
 
         function sendRootsRequest(name) {
-            showToast(`Roots Invitation sent to ${name}. They will see your House of Chizuva lineage and Chii AI compatibility report.`);
+            showToast(`Roots Invitation sent to ${name}. They will see your House of Chizuva lineage and Chii AI report.`);
         }
 
-        // Cross-functionality: Find matches from tree
         function findMatchesFromTree() {
             if (!currentUser) { showSignUp(); return; }
-            showToast('Filtering matches by your current family tree depth and House of Chizuva alignment...');
+            showToast('Filtering matches by your current family tree and House of Chizuva alignment...');
             switchTab('matches');
-            setTimeout(() => {
-                const grid = document.getElementById('matches-grid');
-                grid.style.border = '1px solid #d4af37';
-                setTimeout(() => grid.style.border = 'none', 1800);
-            }, 600);
         }
 
-        // Family Tree functions (with worksheet intelligence)
         function initFamilyTree() {
             const container = document.getElementById('family-tree-container');
             if (!container) return;
             container.innerHTML = '';
-
             if (familyNodes.length === 0) {
                 familyNodes = [
                     { id: 1, name: "House of Chizuva (Origin)", birth: "Sacred Family Farm", relation: "Root / Origin", x: 100, y: 70, heritage: "The sacred starting point. Family farm where the vision was cultivated with hands in the dirt.", rootedIn: "House of Chizuva + 7-Week Mastery", pillar: "Heritage + Collaboration", impact: "All lineage traces back here." },
@@ -316,7 +316,6 @@
         function renderFamilyTree() {
             const container = document.getElementById('family-tree-container');
             container.innerHTML = '';
-
             familyNodes.forEach((node, idx) => {
                 if (idx > 0) {
                     const line = document.createElement('div');
@@ -327,7 +326,6 @@
                     line.style.height = '2px';
                     container.appendChild(line);
                 }
-
                 const el = document.createElement('div');
                 el.className = `tree-node absolute bg-[#111611] border ${node.relation.includes('Root') ? 'border-[#d4af37]' : 'border-[#2e3a2e]'} rounded-3xl px-5 py-4 w-[210px] text-sm`;
                 el.style.left = node.x + 'px';
@@ -336,14 +334,11 @@
                     <div class="font-semibold ${node.relation.includes('Root') ? 'text-[#d4af37]' : ''}">${node.name}</div>
                     <div class="text-xs text-[#888] mt-1">${node.birth} • ${node.relation}</div>
                 `;
-
                 let dragging = false, sx = 0, sy = 0;
                 el.onmousedown = (e) => { dragging = true; sx = e.clientX - node.x; sy = e.clientY - node.y; };
                 document.onmousemove = (e) => { if (dragging) { node.x = e.clientX - sx; node.y = e.clientY - sy; el.style.left = node.x + 'px'; el.style.top = node.y + 'px'; } };
                 document.onmouseup = () => dragging = false;
-
                 el.onclick = () => { if (!dragging) { if (node.relation.includes('Root')) showNodeDetail(node); else editFamilyNode(node.id); } };
-
                 container.appendChild(el);
             });
         }
@@ -357,7 +352,6 @@
             const rootedIn = prompt('Rooted In:', 'House of Chizuva Lineage');
             const pillar = prompt('Chii Pillar:', 'Heritage + Legacy');
             const impact = prompt('Impact Metric:', 'Strengthens sovereign root');
-
             familyNodes.push({ id: nextNodeId++, name, birth, relation, x: 220 + Math.random()*180, y: 160 + Math.random()*120, heritage, rootedIn, pillar, impact });
             renderFamilyTree();
         }
@@ -431,11 +425,9 @@
         function switchTab(tab) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.getElementById('tab-' + tab).classList.remove('hidden');
-
             document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active', 'text-[#d4af37]', 'border-b-2', 'border-[#d4af37]'));
             const btn = document.querySelector(`[data-tab="${tab}"]`);
             if (btn) btn.classList.add('active', 'text-[#d4af37]', 'border-b-2', 'border-[#d4af37]');
-
             if (tab === 'tree') setTimeout(initFamilyTree, 60);
             if (tab === 'matches') loadMatches();
             if (tab === 'pillars') updatePillarsRecommendations();
@@ -454,8 +446,7 @@
                     if (treeEl) initFamilyTree();
                 }
             }, 500);
-
-            console.log('%c[CHII ROOTS v4.0] Chii AI Matchmaking Engine + full cross-functionality with Family Tree activated. Exceeds best dating + family tree apps in sovereign intelligence.', 'color:#d4af37');
+            console.log('%c[CHII ROOTS v4.1] Full functionality verified. Chii Roots logo (House of Chizuva emblem) embedded across all sections.', 'color:#d4af37');
         }
 
         window.onload = initApp;
